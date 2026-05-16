@@ -1,0 +1,99 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #030303 40%, #000000 100%);
+  font-family: 'Orbitron', sans-serif;
+  color: #00fff7;
+}
+
+/* CLOCK CONTAINER */
+.clock-container {
+  width: min(90vw, 450px);
+  height: min(90vw, 450px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CLOCK FACE */
+.clock {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgb(3 4 4 / 50%);
+  box-shadow: 0 0 20px #ff008b, inset 0 0 20px #3a9d58;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #050505 70%, #000);
+}
+
+/* CENTER DOT */
+#center {
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  width: 2%;
+  height: 2%;
+  background: #fb100e;
+  border-radius: 50%;
+  box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* HOUR NUMBERS */
+.hour-number {
+  position: absolute;
+  font-size: clamp(12px, 2.5vw, 18px);
+  color: #ff0080;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+  font-weight: bold;
+}
+
+/* HANDS */
+.line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: transform 0.1s linear;
+  transform-origin: bottom center;
+  border-radius: 2px;
+}
+
+/* Hour hand */
+.hour-line {
+  width: 10px;
+  height: 28%;
+  color: #00ffcc;
+  z-index: 3;
+}
+
+/* Minute hand */
+.minute-line {
+  width: 10px;
+  height: 35%;
+  color: #ff00ff;
+  z-index: 2;
+}
+
+/* Second hand */
+.second-line {
+  width: 10px;
+  height: 45%;
+  color: #ffff00;
+  z-index: 1;
+}
